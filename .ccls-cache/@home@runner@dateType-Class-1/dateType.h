@@ -26,8 +26,9 @@ class dateType{
         }
       }
       else if (int getDaysinMonth = 29){
-        if (day > 29)
+        if (day > 29 || isLeapYear(year) == true){
           dDay = 1;
+        }
         else{
           dMonth = month;
           dDay = day;
@@ -54,30 +55,28 @@ class dateType{
     int getYear(){return dYear;}
     bool isLeapYear(int year){
       if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
-        cout << "is leap year" << endl;
         return true;
       }
       else {
-        cout << "is not leap year" << endl;
         return false;
       } 
     }
-    int getDaysinMonth(int month, int year){
-      if (month == 4 || month == 6 || month == 9 || month == 11){
-        return 30;
-      }
-      else if (month == 2){
-        if (isLeapYear(year)){
-          return 29;
-        }
-        else{
-          return 28;
-        }
-      }
-      else{
+    int getDaysinMonth(int xmonth, int xyear){
+      if(xmonth == 1 || xmonth == 3 || xmonth == 5 || xmonth == 7 || xmonth == 8 || xmonth == 10 || xmonth == 12){
         return 31;
       }
-    }
+      else if (xmonth == 4 || xmonth == 6 || xmonth == 9 || xmonth == 11){
+          return 30;
+      }
+      else if (xmonth == 2 && isLeapYear(xyear) == true){
+          return 29;
+      }
+      else if (xmonth == 2 && isLeapYear(xyear) == false){
+          return 28;
+      }
+      else
+          return 0;
+      }
     void print(){
       cout << dMonth << "/" << dDay << "/" << dYear << endl;
     }
