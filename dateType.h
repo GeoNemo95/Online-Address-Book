@@ -14,10 +14,12 @@ class dateType{
         dMonth = 1;
         dDay = 1;
         dYear = 1900;
+        cout << "Invalid date, resetting to 1/1/1990" << endl;
       }
       else if (int getDaysinMonth = 30){
         if (day > 30){
           dDay = 1;
+          cout << "Invalid date, resetting to 1/1/1990" << endl;
         }
         else{
           dMonth = month;
@@ -28,6 +30,7 @@ class dateType{
       else if (int getDaysinMonth = 29){
         if (day > 29 || isLeapYear(year) == true){
           dDay = 1;
+          cout << "Invalid date, resetting to 1/1/1990" << endl;
         }
         else{
           dMonth = month;
@@ -36,8 +39,10 @@ class dateType{
         }
       }
       else if (int getDaysinMonth = 28){
-        if (day > 28)
+        if (day > 28){
           dDay = 1;
+          cout << "Invalid date, resetting to 1/1/1990" << endl;
+        }
         else{
           dMonth = month;
           dDay = day;
