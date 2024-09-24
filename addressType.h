@@ -1,3 +1,5 @@
+#pragma once
+#include <iostream>
 #include <string>
 using namespace std;
 
@@ -12,8 +14,8 @@ class addressType{
     void setAddress(string xstreet, string xcity, string xstate, int xzip){
       street = xstreet;
       city = xcity;
-      state = xstate;
-      zip = xzip;
+      setState(xstate);
+      setZipcode(xzip);
     };
     void setStreet(string xstreet){street = xstreet;}
     void setCity(string xcity){city = xcity;}
@@ -40,5 +42,4 @@ class addressType{
     void print(){
       cout << street << endl << city << ", " << state << " " << zip << endl;
     }
-    
 };

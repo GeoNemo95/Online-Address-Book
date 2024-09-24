@@ -1,3 +1,5 @@
+#pragma once
+#include <iostream>
 #include <string>
 using namespace std;
 
@@ -8,17 +10,36 @@ class addressType{
     string state;
     int zip;
   public:
-    void setAddress(string, string, string, int){
-      
+    addressType(string xstreet = "", string xcity = "", string xstate = "XX", int xzip = 10000): street(xstreet), city(xcity), state(xstate), zip(xzip){};
+    void setAddress(string xstreet, string xcity, string xstate, int xzip){
+      street = xstreet;
+      city = xcity;
+      setState(xstate);
+      setZipcode(xzip);
     };
-    void setStreet(string street);
-    void setCity(string city);
-    void setState(string state);
-    void setZipcode(string zip);
-    string getStreet();
-    string getCity(); 
-    string getState();
-    int getZip();
-    void print(ostream &out);
-    addressType(string street = "", string city = "", string state = "XX", int zip = 10000);
+    void setStreet(string xstreet){street = xstreet;}
+    void setCity(string xcity){city = xcity;}
+    void setState(string xstate){
+      if(xstate.length() != 2){
+        state = "XX";
+      }
+      else{
+        state = xstate;
+      }
+    }
+    void setZipcode(int xzip){
+      if (xzip > 11111 && xzip < 99999){
+        zip = xzip;
+      }
+      else {
+        zip = 10000;
+      }
+    }
+    string getStreet(){return street;}
+    string getCity(){return city;}
+    string getState(){return state;}
+    int getZip(){return zip;}
+    void print(){
+      cout << street << endl << city << ", " << state << " " << zip << endl;
+    }
 };

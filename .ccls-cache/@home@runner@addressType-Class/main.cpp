@@ -26,7 +26,7 @@ int main()
     cout << endl;
 
     cout << "Testing valid address ..." << endl;
-    address.setAddress("44 East Main Street");
+    address.setStreet("44 East Main Street"); //changed from setAddress to setStreet as there weren't enough arguments for setAddress
     address.setCity("Hampton");
     address.setState("VA");
     address.setZipcode(23669);
