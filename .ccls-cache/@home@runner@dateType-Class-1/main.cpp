@@ -36,4 +36,7 @@ cout << "Setting valid date (August 15, 2016) ... ";
 date.setDate(8, 15, 2016);
 date.print();
 cout << endl;
+cout << "year is " << date.getYear() << endl;
+date.isLeapYear(date.getYear());
+cout << "number of days in the month is " << date.getDaysinMonth(date.getMonth(), date.getYear()) << endl;
 }
