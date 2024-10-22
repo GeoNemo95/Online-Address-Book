@@ -17,7 +17,7 @@ class dateType{
         dYear = 1900;
         cout << "Invalid date, resetting to 1/1/1990" << endl;
       }
-      else if (int getDaysinMonth = 30){
+      else if (getDaysinMonth(month, year) == 30){
         if (day > 30){
           dDay = 1;
           cout << "Invalid date, resetting to 1/1/1990" << endl;
@@ -28,8 +28,8 @@ class dateType{
           dYear = year;
         }
       }
-      else if (int getDaysinMonth = 29){
-        if (day > 29 || isLeapYear(year) == true){
+      else if (getDaysinMonth(month, year) == 29){
+        if (day > 29 || isLeapYear(year) == false){
           dDay = 1;
           cout << "Invalid date, resetting to 1/1/1990" << endl;
         }
@@ -39,7 +39,7 @@ class dateType{
           dYear = year;
         }
       }
-      else if (int getDaysinMonth = 28){
+      else if (getDaysinMonth(month, year) == 28){
         if (day > 28){
           dDay = 1;
           cout << "Invalid date, resetting to 1/1/1990" << endl;
@@ -61,23 +61,24 @@ class dateType{
     int getYear(){return dYear;}
     bool isLeapYear(int year){
       if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
+        //cout << "testing year" << year << endl;
         return true;
       }
       else {
         return false;
       } 
     }
-    int getDaysinMonth(int xmonth, int xyear){
-      if(xmonth == 1 || xmonth == 3 || xmonth == 5 || xmonth == 7 || xmonth == 8 || xmonth == 10 || xmonth == 12){
+    int getDaysinMonth(int month, int year){
+      if(month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12){
         return 31;
       }
-      else if (xmonth == 4 || xmonth == 6 || xmonth == 9 || xmonth == 11){
+      else if (month == 4 || month == 6 || month == 9 || month == 11){
           return 30;
       }
-      else if (xmonth == 2 && isLeapYear(xyear) == true){
+      else if (month == 2 && isLeapYear(year) == true){
           return 29;
       }
-      else if (xmonth == 2 && isLeapYear(xyear) == false){
+      else if (month == 2 && isLeapYear(year) == false){
           return 28;
       }
       else
